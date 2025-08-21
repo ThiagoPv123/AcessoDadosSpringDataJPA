@@ -1,0 +1,3 @@
+docker run --name librarydb2 -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=library postgres:17.5
+
+docker run --name pgadmin4 -p 15432:80 -e PGADMIN_DEFAULT_EMAIL=thiagopetenusso45@gmail.com -e PGADMIN_DEFAULT_PASSWORD=Thiago050799@ --network library-network dpage/pgadmin4
