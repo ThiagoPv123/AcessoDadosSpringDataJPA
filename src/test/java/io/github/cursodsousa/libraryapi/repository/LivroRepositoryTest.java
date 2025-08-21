@@ -28,8 +28,8 @@ class LivroRepositoryTest {
         Livro livro = new Livro();
         livro.setIsbn("92108-1321");
         livro.setPreco(BigDecimal.valueOf(199));
-        livro.setGenero(GeneroLivro.TERROR);
-        livro.setTitulo("Invocação do mal");
+        livro.setGenero(GeneroLivro.CIENCIA);
+        livro.setTitulo("Ciências");
         livro.setDataPublicacao(LocalDate.of(1980, 1, 2));
 
         Autor autor = autorRepository.findById(UUID.fromString("f36f942d-3cfa-4bb9-a61b-5512383a31de")).orElse(null);
@@ -136,4 +136,16 @@ class LivroRepositoryTest {
         var resultado = repository.findByGenero(GeneroLivro.TERROR, "preco");
         resultado.forEach(System.out::println);
     }
+
+    @Test
+    void deletePorGeneroTest(){
+        repository.deleteByGenero(GeneroLivro.CIENCIA);
+    }
+
+    @Test
+    void updateDataPublicacaoTest(){
+        repository.updateDataPublicacao(LocalDate.of(2020, 2,1), "92108-1321");
+    }
+
+
 }
